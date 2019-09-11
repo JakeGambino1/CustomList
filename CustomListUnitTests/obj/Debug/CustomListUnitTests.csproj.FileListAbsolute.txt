@@ -1,0 +1,17 @@
+C:\Users\jakeg\Desktop\devCodeCamp\Week5\CustomListProject\CustomListUnitTests\obj\Debug\CustomListUnitTests.csprojAssemblyReference.cache
+C:\Users\jakeg\Desktop\devCodeCamp\Week5\CustomListProject\CustomListUnitTests\obj\Debug\CustomListUnitTests.csproj.CoreCompileInputs.cache
+C:\Users\jakeg\Desktop\devCodeCamp\Week5\CustomListProject\CustomListUnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\jakeg\Desktop\devCodeCamp\Week5\CustomListProject\CustomListUnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\jakeg\Desktop\devCodeCamp\Week5\CustomListProject\CustomListUnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\jakeg\Desktop\devCodeCamp\Week5\CustomListProject\CustomListUnitTests\bin\Debug\CustomListUnitTests.dll
+C:\Users\jakeg\Desktop\devCodeCamp\Week5\CustomListProject\CustomListUnitTests\bin\Debug\CustomListUnitTests.pdb
+C:\Users\jakeg\Desktop\devCodeCamp\Week5\CustomListProject\CustomListUnitTests\bin\Debug\CustomListProject.exe
+C:\Users\jakeg\Desktop\devCodeCamp\Week5\CustomListProject\CustomListUnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\jakeg\Desktop\devCodeCamp\Week5\CustomListProject\CustomListUnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\jakeg\Desktop\devCodeCamp\Week5\CustomListProject\CustomListUnitTests\bin\Debug\CustomListProject.pdb
+C:\Users\jakeg\Desktop\devCodeCamp\Week5\CustomListProject\CustomListUnitTests\bin\Debug\CustomListProject.exe.config
+C:\Users\jakeg\Desktop\devCodeCamp\Week5\CustomListProject\CustomListUnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\jakeg\Desktop\devCodeCamp\Week5\CustomListProject\CustomListUnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\jakeg\Desktop\devCodeCamp\Week5\CustomListProject\CustomListUnitTests\obj\Debug\CustomListUnitTests.csproj.CopyComplete
+C:\Users\jakeg\Desktop\devCodeCamp\Week5\CustomListProject\CustomListUnitTests\obj\Debug\CustomListUnitTests.dll
+C:\Users\jakeg\Desktop\devCodeCamp\Week5\CustomListProject\CustomListUnitTests\obj\Debug\CustomListUnitTests.pdb
