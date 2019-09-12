@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CustomListProject
 {
-    public class CustomList<T> 
+    public class CustomList<T>
     {
         public T[] listClass;
         // member variables
@@ -36,7 +36,7 @@ namespace CustomListProject
             if (itemCount == capacity)
             {
                 T[] temporaryArray = DoubleCapacityOfArray();
-                CopyOldArrayToNew(temporaryArray);
+                CopyItemsToArray(temporaryArray);
             }
         }
         public void AddValueToArray(T value)
@@ -52,7 +52,7 @@ namespace CustomListProject
             temporaryCustomList = new T[capacity];
             return temporaryCustomList;
         }
-        public T[] CopyOldArrayToNew(T[] temporaryCustomList)
+        public T[] CopyItemsToArray(T[] temporaryCustomList)
         {
             for (int i = 0; i < itemCount; i++)
             {
@@ -70,15 +70,14 @@ namespace CustomListProject
         // REMOVE METHOD
         public void Remove(T value)
         {
-            int valueFound = SearchForValueInArray(value, listClass);
+            int valueFound = SearchArray(value, listClass);
 
             if (valueFound >= 0) {
-                DecrementIndexFromFollowingValues(valueFound);
+                ShiftListItems(valueFound);
                 itemCount--;
             }
         }
-
-        public int SearchForValueInArray(T inputValue, T[] listClass)
+        public int SearchArray(T inputValue, T[] listClass)
         {
             for (int i = 0; i < ItemCount; i++)
             {
@@ -90,11 +89,33 @@ namespace CustomListProject
             }
             return -1;
         }
-        public void DecrementIndexFromFollowingValues(int valueFound)
+        public void ShiftListItems(int valueFound)
         {
             for (int i = valueFound; i < ItemCount; i++)
             {
                 listClass[i] = listClass[i + 1];
+            }
+        }
+
+        // TOSTRING METHOD
+        //public override string ToString(CustomList<T> listClass)
+        //{
+            
+        //}
+        public void ConvertCustomTListToStringList()
+        {
+            CustomList<string> stringList = new CustomList<string>();
+            for (int i = 0; i < itemCount; i++)
+            {
+                stringList.Add($"{listClass[i]}");
+            }
+        }
+
+        public void PushStringsToList()
+        {
+            foreach (T i in listClass)
+            {
+                ConvertCustomTListToStringList();
             }
         }
     }

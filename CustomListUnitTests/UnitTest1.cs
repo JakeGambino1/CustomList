@@ -99,23 +99,6 @@ namespace CustomListUnitTests
         }
 
         // SUBTRACT TEST METHODS
-        //[TestMethod]
-        //public void Remove_RemoveFirstInstanceOfValueAtDefaultCapacity_IndexForPositionGoesToDefault()
-        //{
-        //    // Arrange
-        //    CustomList<int> testList = new CustomList<int>();
-        //    testList.Add(1);
-        //    testList.Add(2);
-        //    int expected = 0;
-        //    int actual;
-
-        //    // Act
-        //    testList.Remove(1);
-        //    actual = testList[0];
-
-        //    // Assert
-        //    Assert.AreEqual(expected, actual);
-        //}
         [TestMethod]
         public void Remove_RemoveFirstInstanceOfValue_FollowingElementShiftsDownOneIndex()
         {
@@ -233,6 +216,56 @@ namespace CustomListUnitTests
 
             Assert.AreEqual(actual1, expected);
             Assert.AreEqual(actual2, expected);
+        }
+
+        // TOSTRING OVERRIDE METHOD TESTS
+        [TestMethod]
+        public void Convert_ConvertToString_ListInformationBecomesString()
+        {
+            CustomList<int> testList = new CustomList<int>();
+            testList.Add(1);
+            string expected = "1";
+            string actual;
+
+            testList.ConvertCustomTListToStringList();
+            actual = $"{testList[0]}";
+
+            Assert.AreEqual(actual, expected);
+        }
+        [TestMethod]
+        public void Convert_ConvertMultipleItemsToString_ListInformationBecomesString()
+        {
+            CustomList<int> testList = new CustomList<int>();
+            testList.Add(1);
+            testList.Add(2);
+            testList.Add(3);
+            testList.Add(4);
+            testList.Add(5);
+
+            string expected0 = "1";
+            string expected1 = "2";
+            string expected2 = "3";
+            string expected3 = "4";
+            string expected4 = "5";
+            string actual0;
+            string actual1;
+            string actual2;
+            string actual3;
+            string actual4;
+
+
+            testList.ConvertCustomTListToStringList();
+            actual0 = $"{testList[0]}";
+            actual1 = $"{testList[1]}";
+            actual2 = $"{testList[2]}";
+            actual3 = $"{testList[3]}";
+            actual4 = $"{testList[4]}";
+
+            Assert.AreEqual(actual0, expected0);
+            Assert.AreEqual(actual1, expected1);
+            Assert.AreEqual(actual2, expected2);
+            Assert.AreEqual(actual3, expected3);
+            Assert.AreEqual(actual4, expected4);
         }
     }
 }
