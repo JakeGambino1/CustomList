@@ -98,24 +98,16 @@ namespace CustomListProject
         }
 
         // TOSTRING METHOD
-        //public override string ToString(CustomList<T> listClass)
-        //{
-            
-        //}
+        public override string ToString()
+        {
+            return "";
+        }
         public void ConvertCustomTListToStringList()
         {
             CustomList<string> stringList = new CustomList<string>();
             for (int i = 0; i < itemCount; i++)
             {
                 stringList.Add($"{listClass[i]}");
-            }
-        }
-
-        public void PushStringsToList()
-        {
-            foreach (T i in listClass)
-            {
-                ConvertCustomTListToStringList();
             }
         }
     }

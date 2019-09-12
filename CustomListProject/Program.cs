@@ -10,6 +10,14 @@ namespace CustomListProject
     {
         static void Main(string[] args)
         {
+            CustomList<int> listTest = new CustomList<int>();
+            listTest.Add(1);
+            listTest.Add(2);
+            listTest.Add(3);
+
+            string str = listTest[2].ToString();
+            Console.WriteLine(str);
+            Console.ReadLine();
 
         }
     }
