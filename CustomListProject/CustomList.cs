@@ -29,6 +29,7 @@ namespace CustomListProject
             listClass = new T[capacity];
         }
         // member methods
+        // ADD METHOD
         public void Add(T value)
         {
             AddValueToArray(value);
@@ -48,7 +49,8 @@ namespace CustomListProject
             T[] temporaryCustomList;
             int newArraylength = capacity * 2;
             capacity = newArraylength;
-            return temporaryCustomList = new T[capacity];
+            temporaryCustomList = new T[capacity];
+            return temporaryCustomList;
         }
         public T[] CopyOldArrayToNew(T[] temporaryCustomList)
         {
@@ -63,9 +65,37 @@ namespace CustomListProject
             indexPosition++;
             itemCount++;
         }
+
+
+        // REMOVE METHOD
         public void Remove(T value)
         {
+            int valueFound = SearchForValueInArray(value, listClass);
 
+            if (valueFound >= 0) {
+                DecrementIndexFromFollowingValues(valueFound);
+                itemCount--;
+            }
+        }
+
+        public int SearchForValueInArray(T inputValue, T[] listClass)
+        {
+            for (int i = 0; i < ItemCount; i++)
+            {
+                T arrayItemValue = listClass[i];
+                if (inputValue.Equals(arrayItemValue))
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
+        public void DecrementIndexFromFollowingValues(int valueFound)
+        {
+            for (int i = valueFound; i < ItemCount; i++)
+            {
+                listClass[valueFound] = listClass[valueFound + 1];
+            }
         }
     }
 }
