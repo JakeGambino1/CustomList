@@ -6,35 +6,31 @@ namespace CustomListUnitTests
     [TestClass]
     public class UnitTest1
     {
+
+        // ADD TEST METHODS
         [TestMethod]
         public void Add_AddItemToEmptyList_ItemGoesToIndexZero()
         {
-            // arrange
             CustomList<string> testList = new CustomList<string>();
             string expected = "Murdock";
             string actual;
 
-            // act
             testList.Add("Murdock");
             actual = testList[0];
 
-            // assert
             Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
         public void Add_AddItemToEmptyList_CountIncrementsByOne()
         {
-            // arrange
             CustomList<int> testList = new CustomList<int>();
             int expected = 1;
             int actual;
 
-            // act
             testList.Add(82);
             actual = testList.indexPosition;
 
-            // assert
             Assert.AreEqual(expected, actual);
         }
 
@@ -96,6 +92,24 @@ namespace CustomListUnitTests
             Assert.AreEqual(actual2, expected2);
             Assert.AreEqual(actual3, expected3);
             Assert.AreEqual(actual4, expected4);
+        }
+
+        // SUBTRACT TEST METHODS
+        [TestMethod]
+        public void Remove_RemoveFirstInstanceOfValueAtDefaultCapacity_IndexForPositionGoesToDefault()
+        {
+            // Arrange
+            CustomList<int> testList = new CustomList<int>();
+            testList.Add(1);
+            testList.Add(2);
+            int expected = 0;
+            int actual = testList[0];
+
+            // Act
+            testList.Remove(1);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
         }
     }
 }

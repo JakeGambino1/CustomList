@@ -9,9 +9,9 @@ namespace CustomListProject
     public class CustomList<T> 
     {
         public T[] listClass;
-        T[] temporaryCustomList;
         // member variables
-        public int ItemCount { get { return ItemCount; } private set { ItemCount = value; } }
+        public int ItemCount { get { return itemCount; } private set { itemCount = value; } }
+        private int itemCount;
         public int capacity;
         public int indexPosition;
 
@@ -23,7 +23,7 @@ namespace CustomListProject
         // constructor
         public CustomList()
         {
-            ItemCount = 0;
+            itemCount = 0;
             indexPosition = 0;
             capacity = 2;
             listClass = new T[capacity];
@@ -32,38 +32,36 @@ namespace CustomListProject
         public void Add(T value)
         {
             AddValueToArray(value);
-            DoubleCapacityOfArrayIfNecessary();
-            CopyOldArrayToNew();
-            IncrementArray();
+            if (itemCount == capacity)
+            {
+                T[] temporaryArray = DoubleCapacityOfArray();
+                CopyOldArrayToNew(temporaryArray);
+            }
         }
         public void AddValueToArray(T value)
         { 
             listClass[indexPosition] = value;
-
-            if (ItemCount == capacity)
-            {
-                DoubleCapacityOfArrayIfNecessary();
-            }
+            IncrementArray();
         }
-        public void DoubleCapacityOfArrayIfNecessary()
+        public T[] DoubleCapacityOfArray()
         {
+            T[] temporaryCustomList;
             int newArraylength = capacity * 2;
             capacity = newArraylength;
-            temporaryCustomList = new T[capacity];
+            return temporaryCustomList = new T[capacity];
         }
-        public T[] CopyOldArrayToNew()
+        public T[] CopyOldArrayToNew(T[] temporaryCustomList)
         {
-            for (int i = 0; i < ItemCount; i++)
+            for (int i = 0; i < itemCount; i++)
             {
                 temporaryCustomList[i] = listClass[i];
-                listClass = temporaryCustomList;
             }
-            return listClass;
+            return listClass = temporaryCustomList;
         }
         public void IncrementArray()
         {
             indexPosition++;
-            ItemCount++;
+            itemCount++;
         }
         public void Remove(T value)
         {
