@@ -32,7 +32,7 @@ namespace CustomListUnitTests
 
             // act
             testList.Add(82);
-            actual = testList.IndexPosition;
+            actual = testList.indexPosition;
 
             // assert
             Assert.AreEqual(expected, actual);
@@ -63,7 +63,7 @@ namespace CustomListUnitTests
             testList.Add(2);
             testList.Add(3);
            
-            actual = testList.Capacity;
+            actual = testList.capacity;
 
             Assert.AreEqual(expected, actual);
         }
@@ -79,11 +79,11 @@ namespace CustomListUnitTests
             testList.Add(4);
             testList.Add(5);
 
-            int expected0 = 0;
-            int expected1 = 1;
-            int expected2 = 2;
-            int expected3 = 3;
-            int expected4 = 4;
+            int expected0 = 1;
+            int expected1 = 2;
+            int expected2 = 3;
+            int expected3 = 4;
+            int expected4 = 5;
 
             int actual0 = testList[0];
             int actual1 = testList[1];
