@@ -186,6 +186,7 @@ namespace CustomListUnitTests
             Assert.AreEqual(actual0, expected0);
             Assert.AreEqual(actual1, expected1);
         }
+        [TestMethod]
         public void Remove_RemoveItemThatDoesntExist_ThrowException()
         {
             CustomList<int> testList = new CustomList<int>();
@@ -193,10 +194,27 @@ namespace CustomListUnitTests
             testList.Add(2);
             testList.Add(3);
             testList.Add(4);
-            int expected;
-            int actual;
+            int expected0 = 1;
+            int expected1 = 2;
+            int expected2 = 3;
+            int expected3 = 4;
+
+            int actual0;
+            int actual1;
+            int actual2;
+            int actual3;
 
             testList.Remove(5);
+            actual0 = testList[0];
+            actual1 = testList[1];
+            actual2 = testList[2];
+            actual3 = testList[3];
+
+            Assert.AreEqual(expected0, actual0);
+            Assert.AreEqual(expected1, actual1);
+            Assert.AreEqual(expected2, actual2);
+            Assert.AreEqual(expected3, actual3);
+
         }
         public void Remove_RemoveItemValue_OnlyRemovesFirstInstanceOfValue()
         {

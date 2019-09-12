@@ -94,7 +94,7 @@ namespace CustomListProject
         {
             for (int i = valueFound; i < ItemCount; i++)
             {
-                listClass[valueFound] = listClass[valueFound + 1];
+                listClass[i] = listClass[i + 1];
             }
         }
     }
