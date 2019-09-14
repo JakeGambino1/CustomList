@@ -267,5 +267,97 @@ namespace CustomListUnitTests
             Assert.AreEqual(actual3, expected3);
             Assert.AreEqual(actual4, expected4);
         }
+
+        //[TestMethod]
+        //public void Add_AddTwoCustomListsTogether_ReturnNewCombinedList()
+        //{
+        //    CustomList<int> testListOne = new CustomList<int>();
+        //    CustomList<int> testListTwo = new CustomList<int>();
+        //    CustomList<int> combinedList = new CustomList<int>();
+        //    int actual;
+        //    testListOne.Add(1);
+        //    testListOne.Add(2);
+        //    testListOne.Add(3);
+
+        //    testListTwo.Add(4);
+        //    testListTwo.Add(5);
+        //    testListTwo.Add(6);
+
+        //    int expected = 4;
+
+        //    combinedList.Add(testListOne);
+        //    combinedList.Add(testListTwo);
+        //    actual = combinedList[3];
+
+        //    Assert.AreEqual(actual, expected);
+        //}
+        [TestMethod]
+        public void Zip_TakeTwoListsAndZipper_NewListShouldAlternateValuesFromOtherTwoLists()
+        {
+            CustomList<int> listOne = new CustomList<int>();
+            CustomList<int> listTwo = new CustomList<int>();
+            CustomList<int> zipList = new CustomList<int>();
+            int expected0 = 1;
+            int expected1 = 2;
+            int expected2 = 3;
+            int expected3 = 4;
+            int actual0;
+            int actual1;
+            int actual2;
+            int actual3;
+
+            listOne.Add(1);
+            listOne.Add(3);
+            listOne.Add(5);
+
+            listTwo.Add(2);
+            listTwo.Add(4);
+            listTwo.Add(6);
+
+            zipList.Zipper(listOne, listTwo);
+
+            actual0 = zipList[0];
+            actual1 = zipList[1];
+            actual2 = zipList[2];
+            actual3 = zipList[3];
+
+            Assert.AreEqual(actual0, expected0);
+            Assert.AreEqual(actual1, expected1);
+            Assert.AreEqual(actual2, expected2);
+            Assert.AreEqual(actual3, expected3);
+        }
+        [TestMethod]
+        public void Zip_ZipUnequalListsTogether_ShouldOnlyAddDefinedValues()
+        {
+            CustomList<int> listOne = new CustomList<int>();
+            CustomList<int> listTwo = new CustomList<int>();
+            CustomList<int> zipList = new CustomList<int>();
+            int expected0 = 1;
+            int expected1 = 2;
+            int expected2 = 3;
+            int expected3 = 5;
+            int actual0;
+            int actual1;
+            int actual2;
+            int actual3;
+
+            listOne.Add(1);
+            listOne.Add(3);
+            listOne.Add(5);
+
+            listTwo.Add(2);
+
+            zipList.Zipper(listOne, listTwo);
+
+            actual0 = zipList[0];
+            actual1 = zipList[1];
+            actual2 = zipList[2];
+            actual3 = zipList[3];
+
+            Assert.AreEqual(actual0, expected0);
+            Assert.AreEqual(actual1, expected1);
+            Assert.AreEqual(actual2, expected2);
+            Assert.AreEqual(actual3, expected3);
+        }
     }
 }

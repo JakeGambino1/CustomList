@@ -9,6 +9,7 @@ namespace CustomListProject
     public class CustomList<T>
     {
         public T[] listClass;
+        public T[] combinedList;
         // member variables
         public int ItemCount { get { return itemCount; } private set { itemCount = value; } }
         private int itemCount;
@@ -29,6 +30,12 @@ namespace CustomListProject
             listClass = new T[capacity];
         }
         // member methods
+        // + OPERATOR OVERLOAD
+        //public static CustomList<T> operator +(CustomList<T> listOne, CustomList<T> listTwo)
+        //{
+        //    CustomList<T> combinedList = listOne + listTwo;
+        //    return combinedList;
+        //}
         // ADD METHOD
         public void Add(T value)
         {
@@ -65,15 +72,13 @@ namespace CustomListProject
             indexPosition++;
             itemCount++;
         }
-
-
         // REMOVE METHOD
         public void Remove(T value)
         {
-            int valueFound = SearchArray(value, listClass);
+            int valueIfFound = SearchArray(value, listClass);
 
-            if (valueFound >= 0) {
-                ShiftListItems(valueFound);
+            if (valueIfFound >= 0) {
+                ShiftListItems(valueIfFound);
                 itemCount--;
             }
         }
@@ -109,6 +114,25 @@ namespace CustomListProject
             {
                 stringList.Add($"{listClass[i]}");
             }
+        }
+
+        // ZIPPER METHOD
+        public T[] Zipper(CustomList<T> listOne, CustomList<T> listTwo)
+        {
+            listClass = new T[listOne.itemCount + listTwo.itemCount];
+            for (int i = 0; i < capacity; i++)
+            {
+                if (listOne.itemCount > i)
+                {
+                    Add(listOne[i]);
+                }
+                if (listTwo.itemCount > i)
+                {
+                    Add(listTwo[i]);
+                }
+            }
+            return listClass;
+
         }
     }
 }
