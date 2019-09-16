@@ -217,7 +217,6 @@ namespace CustomListUnitTests
             Assert.AreEqual(actual1, expected);
             Assert.AreEqual(actual2, expected);
         }
-
         // TOSTRING OVERRIDE METHOD TESTS
         [TestMethod]
         public void Convert_ConvertToString_ListInformationBecomesString()
@@ -252,7 +251,6 @@ namespace CustomListUnitTests
             string actual2;
             string actual3;
             string actual4;
-
 
             testList.ConvertCustomTListToStringList();
             actual0 = $"{testList[0]}";
@@ -309,6 +307,29 @@ namespace CustomListUnitTests
             Assert.AreEqual(actual3, expected3);
             Assert.AreEqual(actual4, expected4);
             Assert.AreEqual(actual5, expected5);
+        }
+        [TestMethod]
+        public void Subtract_SubtractListFromList_ReturnRemainingValues()
+        {
+            CustomList<int> listOne = new CustomList<int>();
+            CustomList<int> listTwo = new CustomList<int>();
+            CustomList<int> remainingList = new CustomList<int>();
+            int actual0;
+
+            listOne.Add(1);
+            listOne.Add(3);
+            listOne.Add(5);
+
+            listTwo.Add(1);
+            listTwo.Add(3);
+            listTwo.Add(6);
+
+            int expected0 = 5;
+
+            remainingList = listOne - listTwo;
+            actual0 = remainingList[0];
+
+            Assert.AreEqual(actual0, expected0);
         }
 
         [TestMethod]

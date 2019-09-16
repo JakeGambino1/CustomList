@@ -19,7 +19,12 @@ namespace CustomListProject
         public T this[int i]
         {
             get { return list[i]; }
-            set { list[i] = value; }
+            set {
+                if (i >= 0 || i < count)
+                {
+                    list[i] = value;
+                }
+            }
         }
         // constructor
         public CustomList()
@@ -33,10 +38,10 @@ namespace CustomListProject
         // + OPERATOR OVERLOAD
         public static CustomList<T> operator +(CustomList<T> listOne, CustomList<T> listTwo)
         {
-            CustomList<T> combinedList = new CustomList<T>();
-            combinedList.AddLists(listOne);
-            combinedList.AddLists(listTwo);
-            return combinedList;
+            CustomList<T> AddedList = new CustomList<T>();
+            AddedList.AddLists(listOne);
+            AddedList.AddLists(listTwo);
+            return AddedList;
         }
         public void AddLists(CustomList<T> list)
         {
@@ -46,10 +51,10 @@ namespace CustomListProject
             }
         }
         // - OPERATOR OVERLOAD
-        //public static CustomList<T> operator -(CustomList<T> listOne, CustomList<T> listTwo)
-        //{
-
-        //}
+        public static CustomList<T> operator -(CustomList<T> listOne, CustomList<T> listTwo)
+        {
+            
+        }
         // ADD METHOD
         public void Add(T value)
         {
