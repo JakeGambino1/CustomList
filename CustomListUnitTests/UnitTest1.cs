@@ -43,7 +43,7 @@ namespace CustomListUnitTests
 
             testList.Add(1);
             testList.Add(2);
-            actual = testList.ItemCount;
+            actual = testList.Count;
 
             Assert.AreEqual(expected, actual);
         }
@@ -127,7 +127,7 @@ namespace CustomListUnitTests
             int actual;
 
             testList.Remove(1);
-            actual = testList.ItemCount;
+            actual = testList.Count;
 
             Assert.AreEqual(actual, expected);
         }
@@ -144,7 +144,7 @@ namespace CustomListUnitTests
 
             testList.Remove(2);
             testList.Remove(3);
-            actual = testList.ItemCount;
+            actual = testList.Count;
 
             Assert.AreEqual(actual, expected);
         }
@@ -268,29 +268,49 @@ namespace CustomListUnitTests
             Assert.AreEqual(actual4, expected4);
         }
 
-        //[TestMethod]
-        //public void Add_AddTwoCustomListsTogether_ReturnNewCombinedList()
-        //{
-        //    CustomList<int> testListOne = new CustomList<int>();
-        //    CustomList<int> testListTwo = new CustomList<int>();
-        //    CustomList<int> combinedList = new CustomList<int>();
-        //    int actual;
-        //    testListOne.Add(1);
-        //    testListOne.Add(2);
-        //    testListOne.Add(3);
+        [TestMethod]
+        public void Add_AddTwoCustomListsTogether_ReturnNewCombinedList()
+        {
+            CustomList<int> testListOne = new CustomList<int>();
+            CustomList<int> testListTwo = new CustomList<int>();
+            CustomList<int> combinedList = new CustomList<int>();
+            int actual0;
+            int actual1;
+            int actual2;
+            int actual3;
+            int actual4;
+            int actual5;
 
-        //    testListTwo.Add(4);
-        //    testListTwo.Add(5);
-        //    testListTwo.Add(6);
+            testListOne.Add(1);
+            testListOne.Add(2);
+            testListOne.Add(3);
 
-        //    int expected = 4;
+            testListTwo.Add(4);
+            testListTwo.Add(5);
+            testListTwo.Add(6);
+            int expected0 = 1;
+            int expected1 = 2;
+            int expected2 = 3;
+            int expected3 = 4;
+            int expected4 = 5;
+            int expected5 = 6;
 
-        //    combinedList.Add(testListOne);
-        //    combinedList.Add(testListTwo);
-        //    actual = combinedList[3];
+            combinedList = testListOne + testListTwo;
+            actual0 = combinedList[0];
+            actual1 = combinedList[1];
+            actual2 = combinedList[2];
+            actual3 = combinedList[3];
+            actual4 = combinedList[4];
+            actual5 = combinedList[5];
 
-        //    Assert.AreEqual(actual, expected);
-        //}
+            Assert.AreEqual(actual0, expected0);
+            Assert.AreEqual(actual1, expected1);
+            Assert.AreEqual(actual2, expected2);
+            Assert.AreEqual(actual3, expected3);
+            Assert.AreEqual(actual4, expected4);
+            Assert.AreEqual(actual5, expected5);
+        }
+
         [TestMethod]
         public void Zip_TakeTwoListsAndZipper_NewListShouldAlternateValuesFromOtherTwoLists()
         {

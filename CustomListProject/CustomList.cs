@@ -8,39 +8,53 @@ namespace CustomListProject
 {
     public class CustomList<T>
     {
-        public T[] listClass;
+        public T[] list;
         public T[] combinedList;
         // member variables
-        public int ItemCount { get { return itemCount; } private set { itemCount = value; } }
-        private int itemCount;
+        public int Count { get { return count; } private set { count = value; } }
+        private int count;
         public int capacity;
         public int indexPosition;
 
         public T this[int i]
         {
-            get { return listClass[i]; }
-            set { listClass[i] = value; }
+            get { return list[i]; }
+            set { list[i] = value; }
         }
         // constructor
         public CustomList()
         {
-            itemCount = 0;
+            count = 0;
             indexPosition = 0;
             capacity = 2;
-            listClass = new T[capacity];
+            list = new T[capacity];
         }
         // member methods
         // + OPERATOR OVERLOAD
-        //public static CustomList<T> operator +(CustomList<T> listOne, CustomList<T> listTwo)
+        public static CustomList<T> operator +(CustomList<T> listOne, CustomList<T> listTwo)
+        {
+            CustomList<T> combinedList = new CustomList<T>();
+            combinedList.AddLists(listOne);
+            combinedList.AddLists(listTwo);
+            return combinedList;
+        }
+        public void AddLists(CustomList<T> list)
+        {
+            for (int i = 0; i < list.count; i++)
+            {
+                Add(list[i]);
+            }
+        }
+        // - OPERATOR OVERLOAD
+        //public static CustomList<T> operator -(CustomList<T> listOne, CustomList<T> listTwo)
         //{
-        //    CustomList<T> combinedList = listOne + listTwo;
-        //    return combinedList;
+
         //}
         // ADD METHOD
         public void Add(T value)
         {
             AddValueToArray(value);
-            if (itemCount == capacity)
+            if (count == capacity)
             {
                 T[] temporaryArray = DoubleCapacityOfArray();
                 CopyItemsToArray(temporaryArray);
@@ -48,7 +62,7 @@ namespace CustomListProject
         }
         public void AddValueToArray(T value)
         { 
-            listClass[indexPosition] = value;
+            list[indexPosition] = value;
             IncrementArray();
         }
         public T[] DoubleCapacityOfArray()
@@ -61,30 +75,30 @@ namespace CustomListProject
         }
         public T[] CopyItemsToArray(T[] temporaryCustomList)
         {
-            for (int i = 0; i < itemCount; i++)
+            for (int i = 0; i < count; i++)
             {
-                temporaryCustomList[i] = listClass[i];
+                temporaryCustomList[i] = list[i];
             }
-            return listClass = temporaryCustomList;
+            return list = temporaryCustomList;
         }
         public void IncrementArray()
         {
             indexPosition++;
-            itemCount++;
+            count++;
         }
         // REMOVE METHOD
         public void Remove(T value)
         {
-            int valueIfFound = SearchArray(value, listClass);
+            int valueIfFound = SearchArray(value, list);
 
             if (valueIfFound >= 0) {
                 ShiftListItems(valueIfFound);
-                itemCount--;
+                count--;
             }
         }
         public int SearchArray(T inputValue, T[] listClass)
         {
-            for (int i = 0; i < ItemCount; i++)
+            for (int i = 0; i < Count; i++)
             {
                 T arrayItemValue = listClass[i];
                 if (inputValue.Equals(arrayItemValue))
@@ -96,12 +110,11 @@ namespace CustomListProject
         }
         public void ShiftListItems(int valueFound)
         {
-            for (int i = valueFound; i < ItemCount; i++)
+            for (int i = valueFound; i < Count; i++)
             {
-                listClass[i] = listClass[i + 1];
+                list[i] = list[i + 1];
             }
         }
-
         // TOSTRING METHOD
         public override string ToString()
         {
@@ -110,29 +123,27 @@ namespace CustomListProject
         public void ConvertCustomTListToStringList()
         {
             CustomList<string> stringList = new CustomList<string>();
-            for (int i = 0; i < itemCount; i++)
+            for (int i = 0; i < count; i++)
             {
-                stringList.Add($"{listClass[i]}");
+                stringList.Add($"{list[i]}");
             }
         }
-
         // ZIPPER METHOD
         public T[] Zipper(CustomList<T> listOne, CustomList<T> listTwo)
         {
-            listClass = new T[listOne.itemCount + listTwo.itemCount];
+            list = new T[listOne.count + listTwo.count];
             for (int i = 0; i < capacity; i++)
             {
-                if (listOne.itemCount > i)
+                if (listOne.count > i)
                 {
                     Add(listOne[i]);
                 }
-                if (listTwo.itemCount > i)
+                if (listTwo.count > i)
                 {
                     Add(listTwo[i]);
                 }
             }
-            return listClass;
-
+            return list;
         }
     }
 }
