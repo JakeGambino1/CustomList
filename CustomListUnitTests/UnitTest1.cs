@@ -329,7 +329,7 @@ namespace CustomListUnitTests
             remainingList = listOne - listTwo;
             actual0 = remainingList[0];
 
-            Assert.AreEqual(actual0, expected0);
+            Assert.AreEqual(expected0, actual0);
         }
 
         [TestMethod]

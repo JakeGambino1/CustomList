@@ -18,7 +18,13 @@ namespace CustomListProject
 
         public T this[int i]
         {
-            get { return list[i]; }
+            get {
+                if (i < 0 || i >= count)
+                {
+                    throw new IndexOutOfRangeException("You fool, do something else.");
+                }
+                return list[i]; }
+
             set {
                 if (i >= 0 || i < count)
                 {
@@ -53,7 +59,17 @@ namespace CustomListProject
         // - OPERATOR OVERLOAD
         public static CustomList<T> operator -(CustomList<T> listOne, CustomList<T> listTwo)
         {
-            
+            for (int i = 0; i < listOne.count; i++)
+            {
+                for (int j = 0; j < listTwo.count; j++)
+                {
+                    if (listOne[i].Equals(listTwo[j]))
+                    {
+                        listOne.Remove(listOne[i]);
+                    }
+                }
+            }
+            return listOne;
         }
         // ADD METHOD
         public void Add(T value)
