@@ -1,0 +1,22 @@
+CustomList<T> - operator overload
+
+This documentation contains a brief overview of the functionality of the "-" operator in the CustomLists C# project.
+
+Parameters
+CustomList<T> listOne
+CustomList<T> listTwo
+
+To function, we must pass in two lists.
+listTwo is subtracted from listOne
+listOne -= listTwo
+
+Returns
+Returns CustomList<T> listOne after removing listTwo content.
+
+Implements
+example:
+
+listOne has 1, 3, 5
+listTwo has 1, 3, 6
+
+listOne[0] will search listTwo[0], listTwo[1], listTwo[3]. If the values are equal, then listOne[0] is removed from the list.
