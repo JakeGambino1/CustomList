@@ -20,7 +20,6 @@ namespace CustomListUnitTests
 
             Assert.AreEqual(expected, actual);
         }
-
         [TestMethod]
         public void Add_AddItemToEmptyList_CountIncrementsByOne()
         {
@@ -33,7 +32,6 @@ namespace CustomListUnitTests
 
             Assert.AreEqual(expected, actual);
         }
-
         [TestMethod]
         public void Add_AddMultipleItemsToList_CountIncrementsByOne()
         {
@@ -91,13 +89,12 @@ namespace CustomListUnitTests
             actual3 = testList[3];
             actual4 = testList[4];
 
-            Assert.AreEqual(actual0, expected0);
-            Assert.AreEqual(actual1, expected1);
-            Assert.AreEqual(actual2, expected2);
-            Assert.AreEqual(actual3, expected3);
-            Assert.AreEqual(actual4, expected4);
+            Assert.AreEqual(expected0, actual0);
+            Assert.AreEqual(expected1, actual1);
+            Assert.AreEqual(expected2, actual2);
+            Assert.AreEqual(expected3, actual3);
+            Assert.AreEqual(expected4, actual4);
         }
-
         // SUBTRACT TEST METHODS
         [TestMethod]
         public void Remove_RemoveFirstInstanceOfValue_FollowingElementShiftsDownOneIndex()
@@ -106,16 +103,12 @@ namespace CustomListUnitTests
             testList.Add(1);
             testList.Add(2);
             int expected0 = 2;
-            int expected1 = 0;
             int actual0;
-            int actual1;
 
             testList.Remove(1);
             actual0 = testList[0];
-            actual1 = testList[1];
 
             Assert.AreEqual(expected0, actual0);
-            Assert.AreEqual(expected1, actual1);
         }
         [TestMethod]
         public void Remove_RemoveInstanceOfValue_ReduceItemCountByOne()
@@ -129,7 +122,7 @@ namespace CustomListUnitTests
             testList.Remove(1);
             actual = testList.Count;
 
-            Assert.AreEqual(actual, expected);
+            Assert.AreEqual(expected, actual);
         }
         [TestMethod]
         public void Remove_RemoveMultipleItems_UpdateItemCountToReflectNumberRemoved()
@@ -146,7 +139,7 @@ namespace CustomListUnitTests
             testList.Remove(3);
             actual = testList.Count;
 
-            Assert.AreEqual(actual, expected);
+            Assert.AreEqual(expected, actual);
         }
         [TestMethod]
         public void Remove_RemoveMultipleItems_UpdateArrayIndexPosition()
@@ -166,8 +159,8 @@ namespace CustomListUnitTests
             actual0 = testList[0];
             actual1 = testList[1];
 
-            Assert.AreEqual(actual0, expected0);
-            Assert.AreEqual(actual1, expected1);
+            Assert.AreEqual(expected0, actual0);
+            Assert.AreEqual(expected1, actual1);
         }
         [TestMethod]
         public void Remove_RemoveItemThatDoesntExist_ThrowException()
@@ -214,8 +207,8 @@ namespace CustomListUnitTests
             actual1 = testList[1];
             actual2 = testList[2];
 
-            Assert.AreEqual(actual1, expected);
-            Assert.AreEqual(actual2, expected);
+            Assert.AreEqual(expected, actual1);
+            Assert.AreEqual(expected, actual2);
         }
         // TOSTRING OVERRIDE METHOD TESTS
         [TestMethod]
@@ -229,7 +222,7 @@ namespace CustomListUnitTests
             testList.ConvertCustomTListToStringList();
             actual = $"{testList[0]}";
 
-            Assert.AreEqual(actual, expected);
+            Assert.AreEqual(expected, actual);
         }
         [TestMethod]
         public void Convert_ConvertMultipleItemsToString_ListInformationBecomesString()
@@ -259,11 +252,11 @@ namespace CustomListUnitTests
             actual3 = $"{testList[3]}";
             actual4 = $"{testList[4]}";
 
-            Assert.AreEqual(actual0, expected0);
-            Assert.AreEqual(actual1, expected1);
-            Assert.AreEqual(actual2, expected2);
-            Assert.AreEqual(actual3, expected3);
-            Assert.AreEqual(actual4, expected4);
+            Assert.AreEqual(expected0, actual0);
+            Assert.AreEqual(expected1, actual1);
+            Assert.AreEqual(expected2, actual2);
+            Assert.AreEqual(expected3, actual3);
+            Assert.AreEqual(expected4, actual4);
         }
 
         [TestMethod]
@@ -301,12 +294,12 @@ namespace CustomListUnitTests
             actual4 = combinedList[4];
             actual5 = combinedList[5];
 
-            Assert.AreEqual(actual0, expected0);
-            Assert.AreEqual(actual1, expected1);
-            Assert.AreEqual(actual2, expected2);
-            Assert.AreEqual(actual3, expected3);
-            Assert.AreEqual(actual4, expected4);
-            Assert.AreEqual(actual5, expected5);
+            Assert.AreEqual(expected0, actual0);
+            Assert.AreEqual(expected1, actual1);
+            Assert.AreEqual(expected2, actual2);
+            Assert.AreEqual(expected3, actual3);
+            Assert.AreEqual(expected4, actual4);
+            Assert.AreEqual(expected5, actual5);
         }
         [TestMethod]
         public void Subtract_SubtractListFromList_ReturnRemainingValues()
@@ -362,10 +355,10 @@ namespace CustomListUnitTests
             actual2 = zipList[2];
             actual3 = zipList[3];
 
-            Assert.AreEqual(actual0, expected0);
-            Assert.AreEqual(actual1, expected1);
-            Assert.AreEqual(actual2, expected2);
-            Assert.AreEqual(actual3, expected3);
+            Assert.AreEqual(expected0, actual0);
+            Assert.AreEqual(expected1, actual1);
+            Assert.AreEqual(expected2, actual2);
+            Assert.AreEqual(expected3, actual3);
         }
         [TestMethod]
         public void Zip_ZipUnequalListsTogether_ShouldOnlyAddDefinedValues()
@@ -395,10 +388,10 @@ namespace CustomListUnitTests
             actual2 = zipList[2];
             actual3 = zipList[3];
 
-            Assert.AreEqual(actual0, expected0);
-            Assert.AreEqual(actual1, expected1);
-            Assert.AreEqual(actual2, expected2);
-            Assert.AreEqual(actual3, expected3);
+            Assert.AreEqual(expected0, actual0);
+            Assert.AreEqual(expected1, actual1);
+            Assert.AreEqual(expected2, actual2);
+            Assert.AreEqual(expected3, actual3);
         }
     }
 }

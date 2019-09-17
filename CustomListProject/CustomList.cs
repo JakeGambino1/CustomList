@@ -24,7 +24,6 @@ namespace CustomListProject
                     throw new IndexOutOfRangeException("You fool, do something else.");
                 }
                 return list[i]; }
-
             set {
                 if (i >= 0 || i < count)
                 {
