@@ -141,11 +141,11 @@ namespace CustomListProject
         public override string ToString()
         {
             StringBuilder stringBuilder = new StringBuilder();
-            foreach (T value in list)
+            for (int i = 0; i < Count; i++)
             {
-                return "";
+                stringBuilder.Append(list[i]);
             }
-            return "Nope";
+            return Convert.ToString(stringBuilder);
         }
         public void ConvertCustomTListToStringList()
         {
