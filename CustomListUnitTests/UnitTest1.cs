@@ -56,7 +56,7 @@ namespace CustomListUnitTests
             testList.Add(1);
             testList.Add(2);
             testList.Add(3);
-            actual = testList.capacity;
+            actual = testList.Capacity;
 
             Assert.AreEqual(expected, actual);
         }
@@ -380,6 +380,7 @@ namespace CustomListUnitTests
             listOne.Add(5);
 
             listTwo.Add(2);
+            listTwo.Add(4);
 
             zipList.Zipper(listOne, listTwo);
 

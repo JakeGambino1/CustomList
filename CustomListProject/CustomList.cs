@@ -13,7 +13,8 @@ namespace CustomListProject
         // member variables
         public int Count { get { return count; } private set { count = value; } }
         private int count;
-        public int capacity;
+        public int Capacity { get { return capacity; } private set { capacity = value; } }
+        private int capacity;
         public int indexPosition;
 
         public T this[int i]
@@ -21,7 +22,7 @@ namespace CustomListProject
             get {
                 if (i < 0 || i >= count)
                 {
-                    throw new IndexOutOfRangeException("You fool, do something else.");
+                    throw new ArgumentOutOfRangeException("You fool, do something else.");
                 }
                 return list[i]; }
             set {
@@ -149,10 +150,11 @@ namespace CustomListProject
             }
         }
         // ZIPPER METHOD
-        public T[] Zipper(CustomList<T> listOne, CustomList<T> listTwo)
+        public CustomList<T> Zipper(CustomList<T> listOne, CustomList<T> listTwo)
         {
-            list = new T[listOne.count + listTwo.count];
-            for (int i = 0; i < capacity; i++)
+            CustomList<T> list = new CustomList<T>();
+            list.Capacity = listOne.count + listTwo.count;
+            for (int i = 0; i < listOne.count + listTwo.count; i++)
             {
                 if (listOne.count > i)
                 {
