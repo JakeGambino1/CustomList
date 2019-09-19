@@ -258,6 +258,23 @@ namespace CustomListUnitTests
             Assert.AreEqual(expected3, actual3);
             Assert.AreEqual(expected4, actual4);
         }
+        [TestMethod]
+        public void Stringify_StringifyAList_EntireListReturnedAsString()
+        {
+            CustomList<int> testList = new CustomList<int>();
+            testList.Add(1);
+            testList.Add(2);
+            testList.Add(3);
+            testList.Add(4);
+            testList.Add(5);
+
+            string expected0 = "12345";
+            string actual0;
+
+            actual0 = testList.ToString();
+
+            Assert.AreEqual(expected0, actual0);
+        }
 
         [TestMethod]
         public void Add_AddTwoCustomListsTogether_ReturnNewCombinedList()
@@ -380,7 +397,6 @@ namespace CustomListUnitTests
             listOne.Add(5);
 
             listTwo.Add(2);
-            listTwo.Add(4);
 
             zipList.Zipper(listOne, listTwo);
 

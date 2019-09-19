@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CustomListProject
 {
-    public class CustomList<T>
+    public class CustomList<T> : IEnumerable
     {
         public T[] list;
         public T[] combinedList;
@@ -139,7 +140,12 @@ namespace CustomListProject
         // TOSTRING METHOD
         public override string ToString()
         {
-            return "";
+            StringBuilder stringBuilder = new StringBuilder();
+            foreach (T value in list)
+            {
+                return "";
+            }
+            return "Nope";
         }
         public void ConvertCustomTListToStringList()
         {
@@ -166,6 +172,14 @@ namespace CustomListProject
                 }
             }
             return list;
+        }
+        public IEnumerator GetEnumerator()
+        {
+            for (int i = 0; i < Count; i++)
+            {
+                yield return list[i];
+            }
+            yield return "The list done gone and ran out of things.";
         }
     }
 }
